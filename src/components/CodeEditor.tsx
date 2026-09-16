@@ -9,7 +9,7 @@ import Editor from "@monaco-editor/react";
 
 function CodeEditor() {
   const [selectedQuestion, setSelectedQuestion] = useState(CODING_QUESTIONS[0]);
-  const [language, setLanguage] = useState<"javascript" | "python" | "java">(LANGUAGES[0].id);
+  const [language, setLanguage] = useState<"javascript" | "python" | "java" | "c" | "cpp">(LANGUAGES[0].id);
   const [code, setCode] = useState(selectedQuestion.starterCode[language]);
 
   const handleQuestionChange = (questionId: string) => {
@@ -18,7 +18,7 @@ function CodeEditor() {
     setCode(question.starterCode[language]);
   };
 
-  const handleLanguageChange = (newLanguage: "javascript" | "python" | "java") => {
+  const handleLanguageChange = (newLanguage: "javascript" | "python" | "java" | "c" | "cpp") => {
     setLanguage(newLanguage);
     setCode(selectedQuestion.starterCode[newLanguage]);
   };
@@ -65,6 +65,9 @@ function CodeEditor() {
                             src={`/${language}.png`}
                             alt={language}
                             className="w-5 h-5 object-contain"
+                            onError={(e) => {
+                              (e.target as HTMLElement).style.display = "none";
+                            }}
                           />
                           {LANGUAGES.find((l) => l.id === language)?.name}
                         </div>
@@ -79,6 +82,9 @@ function CodeEditor() {
                               src={`/${lang.id}.png`}
                               alt={lang.name}
                               className="w-5 h-5 object-contain"
+                              onError={(e) => {
+                                (e.target as HTMLElement).style.display = "none";
+                              }}
                             />
                             {lang.name}
                           </div>

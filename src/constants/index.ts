@@ -89,6 +89,22 @@ export const CODING_QUESTIONS: CodeQuestion[] = [
         
     }
 }`,
+      c: `int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
+    // Write your solution here
+    *returnSize = 2;
+    int* result = (int*)malloc(2 * sizeof(int));
+    return result;
+}`,
+      cpp: `#include <vector>
+using namespace std;
+
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        // Write your solution here
+        return {};
+    }
+};`,
     },
     constraints: [
       "2 ≤ nums.length ≤ 104",
@@ -126,6 +142,20 @@ export const CODING_QUESTIONS: CodeQuestion[] = [
         
     }
 }`,
+      c: `void reverseString(char* s, int sSize) {
+    // Write your solution here
+    
+}`,
+      cpp: `#include <vector>
+using namespace std;
+
+class Solution {
+public:
+    void reverseString(vector<char>& s) {
+        // Write your solution here
+        
+    }
+};`,
     },
   },
   {
@@ -160,6 +190,19 @@ export const CODING_QUESTIONS: CodeQuestion[] = [
         
     }
 }`,
+      c: `#include <stdbool.h>
+
+bool isPalindrome(int x) {
+    // Write your solution here
+    return false;
+}`,
+      cpp: `class Solution {
+public:
+    bool isPalindrome(int x) {
+        // Write your solution here
+        return false;
+    }
+};`,
     },
   },
 ];
@@ -168,6 +211,8 @@ export const LANGUAGES = [
   { id: "javascript", name: "JavaScript", icon: "/javascript.png" },
   { id: "python", name: "Python", icon: "/python.png" },
   { id: "java", name: "Java", icon: "/java.png" },
+  { id: "c", name: "C", icon: "/c.png" },
+  { id: "cpp", name: "C++", icon: "/cpp.png" },
 ] as const;
 
 export interface CodeQuestion {
@@ -183,6 +228,8 @@ export interface CodeQuestion {
     javascript: string;
     python: string;
     java: string;
+    c: string;
+    cpp: string;
   };
   constraints?: string[];
 }
